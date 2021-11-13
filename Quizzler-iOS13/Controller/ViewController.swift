@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var scoreLabel: UILabel!
     var quizMain = QuizMain()
     
     override func viewDidLoad() {
@@ -41,6 +42,7 @@ class ViewController: UIViewController {
         progressBar.progress = quizMain.getProgress()
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
+        scoreLabel.text = "Score: \(quizMain.getScore())"
         
     }
 }
