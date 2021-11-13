@@ -11,8 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var choice1Button: UIButton!
+    @IBOutlet weak var choice2Button: UIButton!
+    @IBOutlet weak var choice3Button: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var scoreLabel: UILabel!
     var quizMain = QuizMain()
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
     @IBAction func verifyAnswer(_ sender: UIButton) {
         
         let userAnswer = sender.currentTitle!
+        
         let checkUser = quizMain.checkAnswer(userAnswer)
         
         if checkUser{
@@ -40,8 +42,12 @@ class ViewController: UIViewController {
     @objc func updateUI(){
         questionLabel.text = quizMain.getQuestionText()
         progressBar.progress = quizMain.getProgress()
-        trueButton.backgroundColor = UIColor.clear
-        falseButton.backgroundColor = UIColor.clear
+        choice1Button.backgroundColor = UIColor.clear
+        choice2Button.backgroundColor = UIColor.clear
+        choice3Button.backgroundColor = UIColor.clear
+        choice1Button.setTitle(quizMain.getChoices()[0], for: .normal)
+        choice2Button.setTitle(quizMain.getChoices()[1], for: .normal)
+        choice3Button.setTitle(quizMain.getChoices()[2], for: .normal)
         scoreLabel.text = "Score: \(quizMain.getScore())"
         
     }
